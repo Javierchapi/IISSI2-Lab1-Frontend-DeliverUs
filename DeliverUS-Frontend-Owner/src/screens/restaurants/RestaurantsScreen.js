@@ -4,39 +4,47 @@ import { getAll } from '../../api/RestaurantEndpoints'
 import TextSemiBold from '../../components/TextSemiBold'
 import TextRegular from '../../components/TextRegular'
 import * as GlobalStyles from '../../styles/GlobalStyles'
-import restaurantLogo from '../../../assets/restaurantLogo.jpeg'
-import { API_BASE_URL } from '@env'
 
-export default function RestaurantsScreen({ navigation, route }) {
-  return (
-    <View style={styles.container}>
-      <TextRegular style={{ fontSize: 16, alignSelf: 'center', margin: 20 }}>
-        Random Restaurant
-      </TextRegular>
+export default function RestaurantsScreen({ navigation }) {
+  const [restaurants, setRestaurants] = useState([])
+  useEffect(() => {
+    console.log('Loading restaurants, please wait 2 seconds')
+    setTimeout(() => {
+      setRestaurants(getAll())
+      console.log('Restaurants loaded')
+    }, 2000)
+  }, [])
+
+  const renderRestaurant = ({ item }) => {
+    return (
       <Pressable
+        style={styles.row}
         onPress={() => {
-          navigation.navigate('RestaurantDetailScreen', {
-            id: Math.floor(Math.random() * 100)
-          })
+          navigation.navigate('RestaurantDetailScreen', { id: item.id })
         }}
-        style={({ pressed }) => [
-          {
-            backgroundColor: pressed
-              ? GlobalStyles.brandBlueTap
-              : GlobalStyles.brandBlue
-          },
-          styles.actionButton
-        ]}
       >
-        <TextRegular textStyle={styles.text}>Restaurant Details</TextRegular>
+        <TextRegular>{item.name}</TextRegular>
       </Pressable>
-    </View>
+    )
+  }
+  return (
+    <FlatList
+      style={styles.container}
+      data={restaurants}
+      renderItem={renderRestaurant}
+      keyExtractor={item => item.id.toString()}
+    />
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  row: {
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd'
   },
   button: {
     borderRadius: 8,
