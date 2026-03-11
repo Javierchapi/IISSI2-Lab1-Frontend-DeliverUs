@@ -2,12 +2,12 @@ import { StyleSheet, View } from 'react-native'
 import TextRegular from '../../components/TextRegular'
 import SystemInfo from '../../components/SystemInfo'
 
-export default function ProfileScreen () {
+export default function ProfileScreen() {
   return (
-        <View style={styles.container}>
-            <TextRegular>Profile</TextRegular>
-            <SystemInfo />
-        </View>
+    <View style={styles.container}>
+      <TextRegular>Profile</TextRegular>
+      <SystemInfo />
+    </View>
   )
 }
 

@@ -6,9 +6,10 @@ const AuthorizationContextProvider = props => {
   const [loggedInUser, setLoggedInUser] = useState(null)
 
   return (
-    <AuthorizationContext.Provider value={{
-      loggedInUser,
-    }}
+    <AuthorizationContext.Provider
+      value={{
+        loggedInUser
+      }}
     >
       {props.children}
     </AuthorizationContext.Provider>

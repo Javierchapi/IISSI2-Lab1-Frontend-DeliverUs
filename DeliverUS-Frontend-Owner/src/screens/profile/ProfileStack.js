@@ -4,14 +4,13 @@ import ProfileScreen from './ProfileScreen'
 const Stack = createNativeStackNavigator()
 
 export default function ProfileStack() {
-
   return (
     <Stack.Navigator>
-        <Stack.Screen
-          name="ProfileScreen"
-          options={{ title: 'Profile' }}
-          component={ProfileScreen}
-        />
+      <Stack.Screen
+        name="ProfileScreen"
+        options={{ title: 'Profile' }}
+        component={ProfileScreen}
+      />
     </Stack.Navigator>
   )
 }

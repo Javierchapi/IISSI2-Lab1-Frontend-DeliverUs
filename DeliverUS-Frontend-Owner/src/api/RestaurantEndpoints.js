@@ -1,9 +1,8 @@
-
-function getAll () {
+function getAll() {
   return restaurantsMock
 }
 
-function getDetail (id) {
+function getDetail(id) {
   return restaurantsDetailMock[id]
 }
 
@@ -35,7 +34,8 @@ const restaurantsMock = [
   {
     id: 2,
     name: '100 montaditos',
-    description: 'Una forma divertida y variada de disfrutar de la comida. Un lugar para compartir experiencias y dejarse llevar por el momento.',
+    description:
+      'Una forma divertida y variada de disfrutar de la comida. Un lugar para compartir experiencias y dejarse llevar por el momento.',
     address: 'Av. de la Reina Mercedes, 43, Sevilla',
     postalCode: '41012',
     url: 'http://spain.100montaditos.com/',
@@ -56,8 +56,7 @@ const restaurantsMock = [
   }
 ]
 
-const restaurantsDetailMock =
-[
+const restaurantsDetailMock = [
   {},
   {
     id: 1,
@@ -306,7 +305,8 @@ const restaurantsDetailMock =
   {
     id: 2,
     name: '100 montaditos',
-    description: 'Una forma divertida y variada de disfrutar de la comida. Un lugar para compartir experiencias y dejarse llevar por el momento.',
+    description:
+      'Una forma divertida y variada de disfrutar de la comida. Un lugar para compartir experiencias y dejarse llevar por el momento.',
     address: 'Av. de la Reina Mercedes, 43, Sevilla',
     postalCode: '41012',
     url: 'http://spain.100montaditos.com/',
